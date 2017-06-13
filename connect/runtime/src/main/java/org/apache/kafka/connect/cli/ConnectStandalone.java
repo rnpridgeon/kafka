@@ -19,11 +19,7 @@ package org.apache.kafka.connect.cli;
 
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
-import org.apache.kafka.connect.runtime.Connect;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
-import org.apache.kafka.connect.runtime.ConnectorFactory;
-import org.apache.kafka.connect.runtime.Herder;
-import org.apache.kafka.connect.runtime.Worker;
+import org.apache.kafka.connect.runtime.*;
 import org.apache.kafka.connect.runtime.rest.RestServer;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorInfo;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
@@ -65,7 +61,7 @@ public class ConnectStandalone {
                 Utils.propsToStringMap(Utils.loadProps(workerPropsFile)) : Collections.<String, String>emptyMap();
 
         Time time = Time.SYSTEM;
-        ConnectorFactory connectorFactory = new ConnectorFactory();
+        ConnectorFactory connectorFactory = new DefaultConnectorFactory();
         StandaloneConfig config = new StandaloneConfig(workerProps);
 
         RestServer rest = new RestServer(config);

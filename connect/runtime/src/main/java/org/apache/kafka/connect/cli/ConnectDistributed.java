@@ -21,6 +21,7 @@ import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
 import org.apache.kafka.connect.runtime.Connect;
 import org.apache.kafka.connect.runtime.ConnectorFactory;
+import org.apache.kafka.connect.runtime.DemoConnectorFactory;
 import org.apache.kafka.connect.runtime.Worker;
 import org.apache.kafka.connect.runtime.distributed.DistributedConfig;
 import org.apache.kafka.connect.runtime.distributed.DistributedHerder;
@@ -60,7 +61,7 @@ public class ConnectDistributed {
                 Utils.propsToStringMap(Utils.loadProps(workerPropsFile)) : Collections.<String, String>emptyMap();
 
         Time time = Time.SYSTEM;
-        ConnectorFactory connectorFactory = new ConnectorFactory();
+        ConnectorFactory connectorFactory = new DemoConnectorFactory("URL to remote provider");
         DistributedConfig config = new DistributedConfig(workerProps);
 
         RestServer rest = new RestServer(config);

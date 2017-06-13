@@ -70,7 +70,7 @@ public class WorkerTest extends ThreadedTest {
 
     private WorkerConfig config;
     private Worker worker;
-    private ConnectorFactory connectorFactory = PowerMock.createMock(ConnectorFactory.class);
+    private DefaultConnectorFactory connectorFactory = PowerMock.createMock(DefaultConnectorFactory.class);
     private OffsetBackingStore offsetBackingStore = PowerMock.createMock(OffsetBackingStore.class);
     private TaskStatus.Listener taskStatusListener = PowerMock.createStrictMock(TaskStatus.Listener.class);
     private ConnectorStatus.Listener connectorStatusListener = PowerMock.createStrictMock(ConnectorStatus.Listener.class);

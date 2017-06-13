@@ -27,7 +27,7 @@ import org.apache.kafka.connect.connector.ConnectorContext;
 import org.apache.kafka.connect.errors.AlreadyExistsException;
 import org.apache.kafka.connect.errors.NotFoundException;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
-import org.apache.kafka.connect.runtime.ConnectorFactory;
+import org.apache.kafka.connect.runtime.DefaultConnectorFactory;
 import org.apache.kafka.connect.runtime.Herder;
 import org.apache.kafka.connect.runtime.SinkConnectorConfig;
 import org.apache.kafka.connect.runtime.TargetState;
@@ -305,7 +305,7 @@ public class DistributedHerderTest {
         PowerMock.expectLastCall();
 
         // config validation
-        ConnectorFactory connectorFactoryMock = PowerMock.createMock(ConnectorFactory.class);
+        DefaultConnectorFactory connectorFactoryMock = PowerMock.createMock(DefaultConnectorFactory.class);
         EasyMock.expect(worker.getConnectorFactory()).andStubReturn(connectorFactoryMock);
         Connector connectorMock = PowerMock.createMock(Connector.class);
         EasyMock.expect(connectorFactoryMock.newConnector(EasyMock.anyString())).andReturn(connectorMock);
@@ -343,7 +343,7 @@ public class DistributedHerderTest {
         PowerMock.expectLastCall();
 
         // config validation
-        ConnectorFactory connectorFactoryMock = PowerMock.createMock(ConnectorFactory.class);
+        DefaultConnectorFactory connectorFactoryMock = PowerMock.createMock(DefaultConnectorFactory.class);
         EasyMock.expect(worker.getConnectorFactory()).andStubReturn(connectorFactoryMock);
         Connector connectorMock = PowerMock.createMock(Connector.class);
         EasyMock.expect(connectorFactoryMock.newConnector(EasyMock.anyString())).andReturn(connectorMock);
@@ -381,7 +381,7 @@ public class DistributedHerderTest {
         PowerMock.expectLastCall();
 
         // config validation
-        ConnectorFactory connectorFactoryMock = PowerMock.createMock(ConnectorFactory.class);
+        DefaultConnectorFactory connectorFactoryMock = PowerMock.createMock(DefaultConnectorFactory.class);
         EasyMock.expect(worker.getConnectorFactory()).andStubReturn(connectorFactoryMock);
         Connector connectorMock = PowerMock.createMock(Connector.class);
         EasyMock.expect(connectorFactoryMock.newConnector(EasyMock.anyString())).andReturn(connectorMock);
@@ -428,7 +428,7 @@ public class DistributedHerderTest {
         config.put(ConnectorConfig.NAME_CONFIG, "test-group");
 
         // config validation
-        ConnectorFactory connectorFactoryMock = PowerMock.createMock(ConnectorFactory.class);
+        DefaultConnectorFactory connectorFactoryMock = PowerMock.createMock(DefaultConnectorFactory.class);
         EasyMock.expect(worker.getConnectorFactory()).andStubReturn(connectorFactoryMock);
         Connector connectorMock = PowerMock.createMock(SinkConnector.class);
         EasyMock.expect(connectorFactoryMock.newConnector(EasyMock.anyString())).andReturn(connectorMock);
@@ -1237,7 +1237,7 @@ public class DistributedHerderTest {
         PowerMock.expectLastCall();
 
         // config validation
-        ConnectorFactory connectorFactoryMock = PowerMock.createMock(ConnectorFactory.class);
+        DefaultConnectorFactory connectorFactoryMock = PowerMock.createMock(DefaultConnectorFactory.class);
         EasyMock.expect(worker.getConnectorFactory()).andStubReturn(connectorFactoryMock);
         Connector connectorMock = PowerMock.createMock(Connector.class);
         EasyMock.expect(connectorFactoryMock.newConnector(EasyMock.anyString())).andReturn(connectorMock);
